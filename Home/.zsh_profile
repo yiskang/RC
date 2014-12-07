@@ -1,0 +1,53 @@
+# Declar Path
+PATH=$PATH
+
+# Transcend JetDrive Lite 330 SDCX Card
+if [[ -d "~/JetDrive" ]]; then
+	EXT_JET_DRIVE=~/JetDrive
+else
+	EXT_JET_DRIVE=/Volumes/Transcend
+fi
+
+# Dev Lib Directory
+EXT_JET_DEV_DIR=$EXT_JET_DRIVE/Dev
+
+# Android SDK
+# Android SDK Directory
+EXT_JET_ANDROID_SDK_DIR=$EXT_JET_DEV_DIR/Android/ADT-Bundle/sdk
+
+# Add Android SDK Tools Directory To Path 
+if [[ -d $EXT_JET_ANDROID_SDK_DIR ]]; then
+	PATH=$PATH:$EXT_JET_ANDROID_SDK_DIR/tools:$EXT_JET_ANDROID_SDK_DIR/platform-tools
+fi
+
+
+# NodeJs
+# Node Version Manager Directory
+NVM_DIR=~/.nvm
+
+# Source NVM
+if [[ -s $NVM_DIR/nvm.sh ]]; then
+	source $NVM_DIR/nvm.sh
+
+	# NVM Completion
+	if [[ -r $NVM_DIR/bash_completion ]]; then
+		source $NVM_DIR/bash_completion
+	fi
+
+	# Use Stable NodeJs
+	nvm use stable > /dev/null 2>&1
+fi
+
+
+# Cordova
+# Cross Mobile Plaform SDK Directory
+EXT_JET_CORDOVA_DIR=$EXT_JET_DEV_DIR/Cordova/Current
+
+# Add Cordova Tools to Path
+if [[ -d $EXT_JET_CORDOVA_DIR ]]; then
+	PATH=$PATH:$EXT_JET_CORDOVA_DIR/bin
+fi
+
+
+# Export Path to Environment
+export PATH
