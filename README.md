@@ -1,4 +1,4 @@
 RcFiles
 =======
 
-My rc files for Linux and Mac OSX
+My rc backups for Linux and Mac OSX
