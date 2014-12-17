@@ -55,6 +55,7 @@ language message zh_TW.UTF-8
 " Autocomplpop - acp
 let g:acp_enableAtStartup = 1
 let g:acp_behaviorSnipmateLength = 1
+let g:acp_completeOption = '.,w,b,u,t,i,k'
 let g:acp_behaviorUserDefinedMeets = 'acp#meetsForKeyword'
 let g:acp_behaviorUserDefinedFunction = 'syntaxcomplete#Complete'
 
