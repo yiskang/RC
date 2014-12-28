@@ -54,6 +54,7 @@ set expandtab
 set autoindent
 set smartindent
 set cindent
+set hlsearch
 
 " Colorful VIM
 colorscheme railscasts
