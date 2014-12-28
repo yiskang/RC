@@ -19,6 +19,17 @@ Plugin 'tomtom/tlib_vim.git'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 
+" Filetype
+Plugin 'othree/html5.vim'
+Plugin 'othree/xml.vim'
+
+" Vim
+Plugin 'othree/vim-syntax-enhanced'
+Plugin 'slim-template/vim-slim'
+
+" Improve
+Plugin 'SyntaxComplete'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -31,6 +42,15 @@ filetype on
 filetype plugin on
 filetype indent on
 set nocompatible
+set wrap
+set showtabline=2 " always show tab line
+set ruler
+set nu
+set nuw=5
+set tabstop=6
+set softtabstop=6
+set shiftwidth=6
+set expandtab
 set autoindent
 set smartindent
 set cindent
@@ -39,12 +59,25 @@ set cindent
 colorscheme railscasts
 syntax on
 set t_Co=256
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+set background=dark
 
 " Encoding
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,big5
 set ambiwidth=double
 language message zh_TW.UTF-8
+
+" Filetype
+" Omnifunc Setting
+setlocal omnifunc=syntaxcomplete#Complete
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+
+" Special File Types
+au BufRead,BufNewFile *.json set syntax=json
+au BufRead,BufNewFile *.ctp set syntax=php
 
 
 " //--------Seperation Line--------//
@@ -54,11 +87,11 @@ language message zh_TW.UTF-8
 
 " Autocomplpop - acp
 let g:acp_enableAtStartup = 1
-let g:acp_behaviorSnipmateLength = 1
 let g:acp_completeOption = '.,w,b,u,t,i,k'
+let g:acp_behaviorSnipmateLength = 1
 let g:acp_behaviorUserDefinedMeets = 'acp#meetsForKeyword'
 let g:acp_behaviorUserDefinedFunction = 'syntaxcomplete#Complete'
-
+let g:omni_syntax_use_iskeyword = 0
 
 " //--------Seperation Line--------//
 
