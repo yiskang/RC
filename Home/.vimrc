@@ -18,6 +18,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils.git'
 Plugin 'tomtom/tlib_vim.git'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
+Plugin 'Rip-Rip/clang_complete'
 
 " Filetype
 Plugin 'othree/html5.vim'
@@ -94,6 +95,11 @@ let g:acp_behaviorUserDefinedMeets = 'acp#meetsForKeyword'
 let g:acp_behaviorUserDefinedFunction = 'syntaxcomplete#Complete'
 let g:omni_syntax_use_iskeyword = 0
 
-" //--------Seperation Line--------//
+" Autocomplete - clang
+let s:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+      let g:clang_library_path=s:clang_library_path
+endif
 
+" //--------Seperation Line--------//
 
