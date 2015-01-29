@@ -96,9 +96,20 @@ let g:acp_behaviorUserDefinedFunction = 'syntaxcomplete#Complete'
 let g:omni_syntax_use_iskeyword = 0
 
 " Autocomplete - clang
-let s:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
-if isdirectory(s:clang_library_path)
-      let g:clang_library_path=s:clang_library_path
+let s:uname = system("echo -n \"$(uname)\"")
+let s:clang_library_path = ''
+
+" If uname is working, do path mapping
+if !v:shell_error
+      if s:uname == "Darwin"
+            let s:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
+      elseif s:uname == "Linux"
+            let s:clang_library_path = '/usr/include'
+      endif
+endif
+
+if !empty(s:clang_library_path) && isdirectory(s:clang_library_path)
+      let g:clang_library_path = s:clang_library_path
 endif
 
 " //--------Seperation Line--------//
