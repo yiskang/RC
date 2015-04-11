@@ -19,6 +19,7 @@ Plugin 'tomtom/tlib_vim.git'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 Plugin 'Rip-Rip/clang_complete'
+Plugin 'myhere/vim-nodejs-complete'
 
 " Filetype
 Plugin 'othree/html5.vim'
