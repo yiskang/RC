@@ -24,7 +24,6 @@ fi
 # NodeJs
 # Node Version Manager Directory
 NVM_DIR=~/.nvm
-
 # Source NVM
 if [[ -s $NVM_DIR/nvm.sh ]]; then
 	source $NVM_DIR/nvm.sh
@@ -36,6 +35,14 @@ if [[ -s $NVM_DIR/nvm.sh ]]; then
 
 	# Use Stable NodeJs
 	nvm use stable > /dev/null 2>&1
+
+	# NPM Completion
+      NODE_DIR=$(npm get prefix)
+      NPM_DIR=$NODE_DIR/lib/node_modules/npm
+
+      if [[ -r $NPM_DIR/lib/utils/completion.sh ]]; then
+            source $NPM_DIR/lib/utils/completion.sh
+      fi
 fi
 
 # Export Path to Environment
