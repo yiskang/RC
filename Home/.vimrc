@@ -20,10 +20,29 @@ Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'myhere/vim-nodejs-complete'
+Plugin 'marijnh/tern_for_vim'
+
+" JavaScript
+Plugin 'othree/yajs.vim'
+Plugin 'JSON.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'jiangmiao/simple-javascript-indenter'
+Plugin 'othree/jspc.vim'
+Plugin 'bigfish/vim-js-context-coloring'
 
 " Filetype
 Plugin 'othree/html5.vim'
 Plugin 'othree/xml.vim'
+
+Plugin 'SyntaxRange'
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" CSS, SCSS
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'ap/vim-css-color'
+Plugin 'cakebaker/scss-syntax.vim'
 
 " Vim
 Plugin 'othree/vim-syntax-enhanced'
@@ -78,6 +97,9 @@ setlocal omnifunc=syntaxcomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
+let g:omni_syntax_group_include_javascript = 'javascript\w\+,jquery\w\+'
+let b:html_omni_flavor = 'html5'
+
 " Special File Types
 au BufRead,BufNewFile *.json set syntax=json
 au BufRead,BufNewFile *.ctp set syntax=php
@@ -113,5 +135,12 @@ if !empty(s:clang_library_path) && isdirectory(s:clang_library_path)
       let g:clang_library_path = s:clang_library_path
 endif
 
-" //--------Seperation Line--------//
+" Syntax Range
+autocmd FileType html call SyntaxRange#Include('/<script[^>]*>/', '</script>', 'javascript', 'htmlTagName')
+autocmd FileType html call SyntaxRange#Include('/<style[^>]*>/', '</style>', 'css', 'htmlTagName')
 
+" JavaScript Context Coloring
+let g:js_context_colors_enabled = 0
+let g:js_context_colors = [ "#EEEEEE", "#99FF99", "#ded35d", 172, "#ff9999", 161, 63 ]
+
+" //--------Seperation Line--------//
