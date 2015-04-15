@@ -25,6 +25,7 @@ Plugin 'marijnh/tern_for_vim'
 " JavaScript
 Plugin 'othree/yajs.vim'
 Plugin 'JSON.vim'
+Plugin 'elzr/vim-json'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jiangmiao/simple-javascript-indenter'
 Plugin 'othree/jspc.vim'
