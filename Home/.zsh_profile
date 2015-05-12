@@ -24,13 +24,15 @@ fi
 # NodeJs
 # Node Version Manager Directory
 NVM_DIR=~/.nvm
+NVM_LIB_DIR=$(brew --prefix nvm)
+
 # Source NVM
-if [[ -s $NVM_DIR/nvm.sh ]]; then
-	source $NVM_DIR/nvm.sh
+if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
+      source $NVM_LIB_DIR/nvm.sh
 
 	# NVM Completion
-	if [[ -r $NVM_DIR/bash_completion ]]; then
-		source $NVM_DIR/bash_completion
+	if [[ -r $NVM_LIB_DIR/etc/bash_completion.d/nvm ]]; then
+		source $NVM_LIB_DIR/etc/bash_completion.d/nvm
 	fi
 
 	# Use Stable NodeJs
