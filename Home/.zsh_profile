@@ -1,6 +1,11 @@
 # Declar Path
 PATH=$PATH
 
+# Profile Setting for Linux, expecailly in Ubuntu
+if [[ -s ~/.profile ]]; then
+      source ~/.profile
+fi
+
 # Transcend JetDrive Lite 330 SDCX Card
 if [[ -d "~/JetDrive" ]]; then
 	EXT_JET_DRIVE=~/JetDrive
@@ -24,7 +29,11 @@ fi
 # NodeJs
 # Node Version Manager Directory
 NVM_DIR=~/.nvm
-NVM_LIB_DIR=$(brew --prefix nvm)
+if type -p brew > /dev/null; then
+       NVM_LIB_DIR=$(brew --prefix nvm)
+else
+       NVM_LIB_DIR=$NVM_DIR
+fi
 
 # Source NVM
 if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
@@ -39,11 +48,13 @@ if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
 	nvm use stable > /dev/null 2>&1
 
 	# NPM Completion
-      NODE_DIR=$(npm get prefix)
-      NPM_DIR=$NODE_DIR/lib/node_modules/npm
+      if type -p npm > /dev/null; then
+            NODE_DIR=$(npm get prefix)
+            NPM_DIR=$NODE_DIR/lib/node_modules/npm
 
-      if [[ -r $NPM_DIR/lib/utils/completion.sh ]]; then
-            source $NPM_DIR/lib/utils/completion.sh
+            if [[ -r $NPM_DIR/lib/utils/completion.sh ]]; then
+                  source $NPM_DIR/lib/utils/completion.sh
+            fi
       fi
 fi
 
