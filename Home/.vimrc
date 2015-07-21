@@ -69,13 +69,18 @@ set showtabline=2 " always show tab line
 set ruler
 set nu
 set nuw=5
-set tabstop=6
-set softtabstop=6
-set shiftwidth=6
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set smartindent
 set cindent
+set hlsearch
+set foldmethod=marker
+set backspace=indent,eol,start whichwrap+=<,>,[,]
+set hidden
+set nobomb
 set hlsearch
 
 " Colorful VIM

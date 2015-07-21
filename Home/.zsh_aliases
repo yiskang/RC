@@ -1,3 +1,4 @@
 alias vi="vim"
 alias vim="vim -p"
 alias df="df -h"
+alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
