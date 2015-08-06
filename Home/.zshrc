@@ -95,3 +95,4 @@ fi
 if [[ -f ~/.zsh_profile ]]; then
 	source ~/.zsh_profile
 fi
+export PATH="/usr/local/sbin:$PATH"
