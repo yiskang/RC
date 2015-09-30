@@ -40,6 +40,8 @@ Plugin 'SyntaxRange'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+Plugin 'keith/swift.vim'
+
 " CSS, SCSS
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
