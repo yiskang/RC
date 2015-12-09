@@ -75,7 +75,7 @@ set nuw=5
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set expandtab
+set noexpandtab
 set autoindent
 set smartindent
 set cindent
