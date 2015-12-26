@@ -46,6 +46,8 @@ Plugin 'keith/swift.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'csscomb/vim-csscomb'
+Plugin 'othree/csscomplete.vim'
 
 " Vim
 Plugin 'othree/vim-syntax-enhanced'
@@ -105,6 +107,7 @@ language message zh_TW.UTF-8
 setlocal omnifunc=syntaxcomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+autocmd FileType scss set sw=2
 
 let g:omni_syntax_group_include_javascript = 'javascript\w\+,jquery\w\+,underscore\w\+,prelude\w\+,requirejs\w\+'
 let b:html_omni_flavor = 'html5'
