@@ -53,9 +53,13 @@ Plugin 'othree/csscomplete.vim'
 Plugin 'othree/vim-syntax-enhanced'
 Plugin 'slim-template/vim-slim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Improve
 Plugin 'SyntaxComplete'
+
+" Documentation
+Plugin 'rizzatti/dash.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
