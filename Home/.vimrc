@@ -30,6 +30,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jiangmiao/simple-javascript-indenter'
 Plugin 'othree/jspc.vim'
 Plugin 'bigfish/vim-js-context-coloring'
+Plugin 'heavenshell/vim-jsdoc'
 
 " Filetype
 Plugin 'othree/html5.vim'
@@ -158,6 +159,10 @@ autocmd FileType html call SyntaxRange#Include('/<style[^>]*>/', '</style>', 'cs
 " JavaScript Context Coloring
 let g:js_context_colors_enabled = 0
 let g:js_context_colors = [ "#EEEEEE", "#99FF99", "#ded35d", 172, "#ff9999", 161, 63 ]
+
+" VIM JsDoc
+nmap <silent> <C-l> <Plug>(jsdoc)
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 
 " //--------Seperation Line--------//
 
