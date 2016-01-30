@@ -31,6 +31,7 @@ Plugin 'jiangmiao/simple-javascript-indenter'
 Plugin 'othree/jspc.vim'
 Plugin 'bigfish/vim-js-context-coloring'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'othree/jsdoc-syntax.vim'
 
 " Filetype
 Plugin 'othree/html5.vim'
@@ -112,6 +113,7 @@ language message zh_TW.UTF-8
 setlocal omnifunc=syntaxcomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType scss set sw=2
 
 let g:omni_syntax_group_include_javascript = 'javascript\w\+,jquery\w\+,underscore\w\+,prelude\w\+,requirejs\w\+'
@@ -161,8 +163,8 @@ let g:js_context_colors_enabled = 0
 let g:js_context_colors = [ "#EEEEEE", "#99FF99", "#ded35d", 172, "#ff9999", 161, 63 ]
 
 " VIM JsDoc
-nmap <silent> <C-l> <Plug>(jsdoc)
-nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+autocmd FileType javascript nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+"let g:jsdoc_allow_input_prompt = 1
 
 " //--------Seperation Line--------//
 
