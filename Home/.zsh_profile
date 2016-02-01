@@ -36,19 +36,23 @@ if [[ -d $EXT_JET_ANDROID_SDK_DIR ]]; then
 	PATH=$PATH:$EXT_JET_ANDROID_SDK_DIR/tools:$EXT_JET_ANDROID_SDK_DIR/platform-tools
 fi
 
+# Export Path to Environment
+export PATH
+
 
 # NodeJs
 # Node Version Manager Directory
 NVM_DIR=~/.nvm
 if type -p brew > /dev/null; then
-       NVM_LIB_DIR=$(brew --prefix nvm)
+	NVM_LIB_DIR=$(brew --prefix nvm)
 else
-       NVM_LIB_DIR=$NVM_DIR
+	NVM_LIB_DIR=$NVM_DIR
 fi
 
 # Source NVM
 if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
-      source $NVM_LIB_DIR/nvm.sh
+
+	source $NVM_LIB_DIR/nvm.sh
 
 	# NVM Completion
 	if [[ -r $NVM_LIB_DIR/etc/bash_completion.d/nvm ]]; then
@@ -69,5 +73,8 @@ if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
       fi
 fi
 
-# Export Path to Environment
-export PATH
+# Rbuy
+if which rbenv > /dev/null; then
+	eval "$(rbenv init -)";
+fi
+
