@@ -32,6 +32,7 @@ Plugin 'othree/jspc.vim'
 Plugin 'bigfish/vim-js-context-coloring'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'mxw/vim-jsx'
 
 " Filetype
 Plugin 'othree/html5.vim'
@@ -166,8 +167,6 @@ let g:js_context_colors = [ "#EEEEEE", "#99FF99", "#ded35d", 172, "#ff9999", 161
 autocmd FileType javascript nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 "let g:jsdoc_allow_input_prompt = 1
 
-" //--------Seperation Line--------//
-
 " Airline
 let g:airline_theme = 'solarized'
 let g:airline_left_sep = ''
@@ -175,5 +174,20 @@ let g:airline_right_sep = ''
 
 " set status line
 set laststatus=2
+
+" jsx
+let g:jsx_ext_required = 0
+
+" Indent
+let g:html_indent_inctags = "html,body,head,tbody,a"
+let g:event_handler_attributes_complete = 0
+let g:microdata_attributes_complete = 0
+let g:SimpleJsIndenter_BriefMode = 1
+
+" Tab Indent
+nmap <tab> V>
+vmap <tab> >gv
+nmap <s-tab> V<
+vmap <s-tab> <gv
 
 " //--------Seperation Line--------//
