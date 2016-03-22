@@ -32,7 +32,6 @@ Plugin 'othree/jspc.vim'
 Plugin 'bigfish/vim-js-context-coloring'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'othree/jsdoc-syntax.vim'
-Plugin 'mxw/vim-jsx'
 
 " Filetype
 Plugin 'othree/html5.vim'
