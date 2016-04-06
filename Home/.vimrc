@@ -36,13 +36,15 @@ Plugin 'othree/jsdoc-syntax.vim'
 " Filetype
 Plugin 'othree/html5.vim'
 Plugin 'othree/xml.vim'
+Plugin 'nikvdp/ejs-syntax'
 
 Plugin 'SyntaxRange'
 
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
-Plugin 'keith/swift.vim'
+"Plugin 'keith/swift.vim'
+Plugin 'toyamarinyon/vim-swift'
 
 " CSS, SCSS
 Plugin 'hail2u/vim-css3-syntax'
