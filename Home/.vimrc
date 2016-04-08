@@ -41,7 +41,9 @@ Plugin 'nikvdp/ejs-syntax'
 Plugin 'SyntaxRange'
 
 Plugin 'godlygeek/tabular'
+
 Plugin 'plasticboy/vim-markdown'
+Plugin 'shime/vim-livedown'
 
 "Plugin 'keith/swift.vim'
 Plugin 'toyamarinyon/vim-swift'
