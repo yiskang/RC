@@ -78,3 +78,17 @@ if which rbenv > /dev/null; then
 	eval "$(rbenv init -)";
 fi
 
+#SSH
+# SSH Config Directory
+SSH_CONFIG_DIR=~/.ssh
+
+# Add private keys
+if type -p ssh-add > /dev/null; then
+	if [[ -s $SSH_CONFIG_DIR/id_github ]]; then
+		ssh-add $SSH_CONFIG_DIR/id_github > /dev/null 2>&1
+	fi
+
+	if [[ -s $SSH_CONFIG_DIR/id_bitbucket ]]; then
+		ssh-add $SSH_CONFIG_DIR/id_bitbucket > /dev/null 2>&1
+	fi
+fi
