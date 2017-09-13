@@ -52,6 +52,7 @@ fi
 # Source NVM
 if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
 
+	#source $NVM_LIB_DIR/nvm.sh --no-use
 	source $NVM_LIB_DIR/nvm.sh
 
 	# NVM Completion
@@ -60,7 +61,7 @@ if [[ -s $NVM_LIB_DIR/nvm.sh ]]; then
 	fi
 
 	# Use Stable NodeJs
-	nvm use stable > /dev/null 2>&1
+	#nvm use stable > /dev/null 2>&1
 
 	# NPM Completion
       if type -p npm > /dev/null; then
