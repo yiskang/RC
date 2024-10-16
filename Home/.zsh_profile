@@ -10,16 +10,18 @@ export LESS_TERMCAP_ue=$'\E[38;5;231m'
 export LESS_TERMCAP_us=$'\E[38;5;167m'
 
 # Declar Path
-PATH=$PATH
+PATH="/opt/homebrew/bin:$PATH"
 
 # Profile Setting for Linux, expecailly in Ubuntu
 if [[ -s ~/.profile ]]; then
       source ~/.profile
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# .NET SDK
+PATH="/usr/local/share/dotnet:$PATH"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Export Path to Environment
 export PATH
