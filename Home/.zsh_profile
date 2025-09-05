@@ -12,6 +12,10 @@ export LESS_TERMCAP_us=$'\E[38;5;167m'
 # Declar Path
 PATH="/opt/homebrew/bin:$PATH"
 
+if [[ -s /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Profile Setting for Linux, expecailly in Ubuntu
 if [[ -s ~/.profile ]]; then
       source ~/.profile
@@ -45,3 +49,5 @@ if type -p ssh-add > /dev/null; then
 		ssh-add $SSH_CONFIG_DIR/id_bitbucket > /dev/null 2>&1
 	fi
 fi
+
+export HOST=$(hostname)
