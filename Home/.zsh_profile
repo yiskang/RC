@@ -16,6 +16,9 @@ if [[ -s /opt/homebrew/bin/brew ]]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# GitHub Spec Kit
+PATH="${HOME}/.local/bin:$PATH"
+
 # Profile Setting for Linux, expecailly in Ubuntu
 if [[ -s ~/.profile ]]; then
       source ~/.profile
