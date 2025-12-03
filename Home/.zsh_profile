@@ -53,4 +53,5 @@ if type -p ssh-add > /dev/null; then
 	fi
 fi
 
-export HOST=$(hostname)
+#export HOST=$(hostname)
+export HOST=$(scutil --get LocalHostName)
