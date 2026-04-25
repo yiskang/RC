@@ -2,7 +2,7 @@ alias vi="vim"
 alias vim="vim -p"
 alias df="df -h"
 alias cc="cd ~/Workspace/Codes/Eason-Agent && CLAUDE_CODE_NO_FLICKER=1 claude"
-alias ccr="cd ~/Workspace/Codes/Eason-Agent && CLAUDE_CODE_NO_FLICKER=1 claude remote-control"
+alias ccrc="cd ~/Workspace/Codes/Eason-Agent && CLAUDE_CODE_NO_FLICKER=1 claude remote-control"
 
 # ═══════════════════════════════════════════════════════════════
 # Safe delete - rm moves to Trash (recoverable)
