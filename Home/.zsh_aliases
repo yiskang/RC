@@ -1,3 +1,6 @@
+# Enable Claude Code 1-hour prompt caching
+export ENABLE_PROMPT_CACHING_1H=1
+
 alias vi="vim"
 alias vim="vim -p"
 alias df="df -h"
