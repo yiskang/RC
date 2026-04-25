@@ -95,6 +95,10 @@ fi
 if [[ -f ~/.zsh_profile ]]; then
 	source ~/.zsh_profile
 fi
+
+if [[ -f ~/.zsh_secrets ]]; then
+	source ~/.zsh_secrets
+fi
 export PATH="/usr/local/sbin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
