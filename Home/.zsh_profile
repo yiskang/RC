@@ -53,5 +53,8 @@ if type -p ssh-add > /dev/null; then
 	fi
 fi
 
+#Claude Code
+ENABLE_PROMPT_CACHING_1H=1
+
 #export HOST=$(hostname)
 export HOST=$(scutil --get LocalHostName)
