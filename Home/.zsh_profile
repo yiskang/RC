@@ -16,7 +16,7 @@ if [[ -s /opt/homebrew/bin/brew ]]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# GitHub Spec Kit
+#	GitHub Spec Kit & codebase-memory-mcp
 PATH="${HOME}/.local/bin:$PATH"
 
 # Profile Setting for Linux, expecailly in Ubuntu
@@ -26,9 +26,13 @@ fi
 
 # .NET SDK
 PATH="/usr/local/share/dotnet:$PATH"
+PATH="$PATH:$HOME/.dotnet/tools"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Rust (rustup/cargo)
+[ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 
 # Export Path to Environment
 export PATH
