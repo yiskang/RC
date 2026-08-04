@@ -22,6 +22,8 @@ SHOW_GIT_DIFF=true
 SHOW_PROJECT=true
 SHOW_LAST_MSG=true # Show last message timestamp (requires the UserPromptSubmit hook)
 LAST_MSG_FILE="$HOME/.claude/last-session-msg"
+SHOW_COST=true
+SHOW_DURATION=true
 
 # ── Color definitions ──
 WH=$'\033[97m'
@@ -30,6 +32,7 @@ YL=$'\033[38;2;255;235;59m'
 OG=$'\033[38;2;255;152;0m'
 RD=$'\033[38;2;244;67;54m'
 MD=$'\033[38;2;246;184;90m'
+PR=$'\033[38;2;186;104;200m'
 DM=$'\033[90m'
 RS=$'\033[0m'
 SEP="${DM} │ ${RS}"
@@ -43,6 +46,8 @@ rl_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 rl_5h_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 rl_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 rl_7d_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+cost_total=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
+duration_ms=$(echo "$input" | jq -r '.cost.total_duration_ms // empty')
 
 # ══════ LINE 1 ══════
 L1=""
@@ -165,6 +170,18 @@ if $SHOW_LAST_MSG && [ -f "$LAST_MSG_FILE" ]; then
   if [ -n "$last_msg" ]; then
     [ -n "$L2" ] && L2="${L2}${SEP}${DM}📝 Last Message:${RS} ${last_msg}" || L2="${DM}📝 Last Message:${RS} ${last_msg}"
   fi
+fi
+
+# Total cost
+if $SHOW_COST && [ -n "$cost_total" ]; then
+  cost_fmt=$(printf '$%.4f' "$cost_total")
+  [ -n "$L2" ] && L2="${L2}${SEP}${GR}${cost_fmt}${RS}" || L2="${GR}${cost_fmt}${RS}"
+fi
+
+# Total duration
+if $SHOW_DURATION && [ -n "$duration_ms" ]; then
+  dur_s=$(awk "BEGIN { printf \"%.1fs\", $duration_ms / 1000 }")
+  [ -n "$L2" ] && L2="${L2}${SEP}${PR}${dur_s}${RS}" || L2="${PR}${dur_s}${RS}"
 fi
 
 # ══════ Output ══════
