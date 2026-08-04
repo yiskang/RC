@@ -34,7 +34,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -45,7 +45,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude",
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'",
             "timeout": 86400
           }
         ]
@@ -57,7 +57,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -67,7 +67,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -78,7 +78,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -88,7 +88,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -98,7 +98,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -108,7 +108,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -118,7 +118,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -128,7 +128,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -138,7 +138,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
+            "command": "~/.claude/hooks/session-time.sh",
+            "timeout": 5
           }
         ]
       },
@@ -146,8 +147,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/session-time.sh",
-            "timeout": 5
+            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && exec \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
           }
         ]
       }
@@ -159,5 +159,6 @@
   },
   "enabledPlugins": {
     "skill-creator@claude-plugins-official": true
-  }
+  },
+  "theme": "dark-daltonized"
 }
