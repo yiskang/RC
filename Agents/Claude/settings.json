@@ -1,66 +1,15 @@
 {
   "env": {
-    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
-    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1",
-    "CLAUDE_CODE_NO_FLICKER": "1"
-  },
-  "attribution": {
-    "sessionUrl": false
-  },
-  "permissions": {
-    "deny": [
-      "Read(**/.zsh_secrets)",
-      "Read(**/.env)",
-      "Bash(*zsh_secrets*)",
-      "Bash(* .env*)",
-      "Bash(: >*)",
-      "Bash(chmod -R 777 *)",
-      "Bash(chmod 777 *)",
-      "Bash(dd *)",
-      "Bash(diskutil erase*)",
-      "Bash(git branch -D*)",
-      "Bash(git clean -f*)",
-      "Bash(git push --force*)",
-      "Bash(git push -f *)",
-      "Bash(git reset --hard*)",
-      "Bash(mkfs*)",
-      "Bash(reboot*)",
-      "Bash(rm -R *)",
-      "Bash(rm -f *)",
-      "Bash(rm -fr *)",
-      "Bash(rm -r *)",
-      "Bash(rm -rf *)",
-      "Bash(shutdown*)",
-      "Bash(sudo *)",
-      "Bash(truncate *)"
-    ],
-    "ask": [
-      "Bash(/bin/rm -R *)",
-      "Bash(/bin/rm -f *)",
-      "Bash(/bin/rm -fr *)",
-      "Bash(/bin/rm -r *)",
-      "Bash(/bin/rm -rf *)"
-    ],
-    "defaultMode": "acceptEdits"
+    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
   },
   "hooks": {
     "Notification": [
-      {
-        "matcher": "idle_prompt|agent_needs_input|elicitation_dialog",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.claude/hooks/ntfy-notify.sh\" ] && \"$HOME/.claude/hooks/ntfy-notify.sh\"; exit 0'",
-            "timeout": 15
-          }
-        ]
-      },
       {
         "matcher": "*",
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -71,17 +20,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.claude/hooks/ntfy-permission.sh\" ] && \"$HOME/.claude/hooks/ntfy-permission.sh\"; exit 0'",
-            "timeout": 15
-          }
-        ]
-      },
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'",
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude",
             "timeout": 86400
           }
         ]
@@ -93,7 +32,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -103,7 +42,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -114,16 +53,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
-          }
-        ]
-      },
-      {
-        "matcher": "Grep|Glob|Read|Search",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/cbm-code-discovery-gate"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -133,7 +63,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -143,43 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
-          }
-        ]
-      },
-      {
-        "matcher": "startup",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/cbm-session-reminder"
-          }
-        ]
-      },
-      {
-        "matcher": "resume",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/cbm-session-reminder"
-          }
-        ]
-      },
-      {
-        "matcher": "clear",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/cbm-session-reminder"
-          }
-        ]
-      },
-      {
-        "matcher": "compact",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/cbm-session-reminder"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -189,17 +83,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
-          }
-        ]
-      }
-    ],
-    "StopFailure": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -209,7 +93,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -219,7 +103,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -229,16 +113,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/session-time.sh",
-            "timeout": 5
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'"
+            "command": "/Users/kangea/.vibe-island/bin/vibe-island-bridge --source claude"
           }
         ]
       }
@@ -246,33 +121,6 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "claude-model-router-hook@claude-model-router-hook": true,
-    "skill-creator@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "i-have-adhd@i-have-adhd": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-model-router-hook": {
-      "source": {
-        "source": "github",
-        "repo": "tzachbon/claude-model-router-hook"
-      }
-    },
-    "i-have-adhd": {
-      "source": {
-        "source": "github",
-        "repo": "ayghri/i-have-adhd"
-      }
-    }
-  },
-  "theme": "dark-daltonized",
-  "remoteControlAtStartup": false,
-  "agentPushNotifEnabled": true
+    "command": "/Users/kangea/.vibe-island/bin/vibe-island-statusline"
+  }
 }
