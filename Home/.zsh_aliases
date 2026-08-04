@@ -8,6 +8,7 @@ alias cc="cd ~/Workspace/Codes/Eason-Agent && CLAUDE_CODE_NO_FLICKER=1 claude"
 alias ccrc="cd ~/Workspace/Codes/Eason-Agent && CLAUDE_CODE_NO_FLICKER=1 claude remote-control"
 alias cckl="cd ~/kiln-adsk && kiln"
 alias cckla="cd ~/kiln-adsk && kiln assistant"
+alias md="mdterm"
 
 # ═══════════════════════════════════════════════════════════════
 # Safe delete - rm moves to Trash (recoverable)
@@ -15,3 +16,42 @@ alias cckla="cd ~/kiln-adsk && kiln assistant"
 alias rm='trash'
 # Use rm! or /bin/rm for permanent deletion
 alias rm!='/bin/rm'
+
+tmx() {
+	local session="${1:-claude}"
+	tmux new -A -s "$session"
+}
+
+tmxls() {
+	tmux ls 2>/dev/null || echo "No tmux sessions."
+}
+
+tmxa() {
+	if [[ -n "$1" ]]; then
+			tmux attach -t "$1"
+	else
+			tmux attach
+	fi
+}
+
+hx() {
+  herdr --session "${1:-claude}"
+}
+
+hxls() {
+	herdr session list 2>/dev/null || echo "No herdr sessions."
+}
+
+hxa() {
+	if [[ -n "$1" ]]; then
+		herdr session attach "$1"
+	else
+		herdr session attach "${1:-default}"
+	fi
+}
+
+hx-exit() {
+	herdr server stop
+}
+
+
