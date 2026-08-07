@@ -9,6 +9,7 @@ alias ccrc="cd ~/Workspace/Codes/Eason-Agent && CLAUDE_CODE_NO_FLICKER=1 claude 
 alias cckl="cd ~/kiln-adsk && kiln"
 alias cckla="cd ~/kiln-adsk && kiln assistant"
 alias md="mdterm"
+alias codex-review="$HOME/.claude/skills/codex-review/codex-review.sh"
 
 # ═══════════════════════════════════════════════════════════════
 # Safe delete - rm moves to Trash (recoverable)
@@ -53,5 +54,3 @@ hxa() {
 hx-exit() {
 	herdr server stop
 }
-
-

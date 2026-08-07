@@ -53,6 +53,15 @@
           }
         ],
         "matcher": "*"
+      },
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kangea/.claude/hooks/mt-push-notify.sh notification"
+          }
+        ]
       }
     ],
     "PermissionRequest": [
@@ -203,6 +212,10 @@
           {
             "command": "/bin/sh -c '[ -x \"$HOME/.vibe-island/bin/vibe-island-bridge\" ] && \"$HOME/.vibe-island/bin/vibe-island-bridge\" --source claude; exit 0'",
             "type": "command"
+          },
+          {
+            "type": "command",
+            "command": "/Users/kangea/.claude/hooks/mt-push-notify.sh stop"
           }
         ]
       }
