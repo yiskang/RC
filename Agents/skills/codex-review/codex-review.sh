@@ -4,7 +4,7 @@ set -u
 
 usage() {
     cat >&2 <<EOF
-Usage: $(basename "$0") <review-type> <file>
+Usage: $(basename "$0") <review-type> <file> [reasoning-effort]
 
 Review types:
   spec          Specification / design document
@@ -12,16 +12,32 @@ Review types:
   api           API / SDK / interface design
   code          Source code
   security      Security-sensitive design or code
+
+Reasoning effort:
+  low
+  medium
+  high
+  xhigh
+
+Default:
+  CODEX_REVIEW_EFFORT environment variable, or "high" if not set.
+
+Examples:
+  $(basename "$0") spec docs/design.md
+  $(basename "$0") spec docs/design.md medium
+  $(basename "$0") architecture docs/system.md xhigh
+  CODEX_REVIEW_EFFORT=medium $(basename "$0") code src/foo.ts
 EOF
     exit 2
 }
 
-if (( $# != 2 )); then
+if (( $# < 2 || $# > 3 )); then
     usage
 fi
 
 review_type="$1"
 input="$2"
+reasoning_effort="${3:-${CODEX_REVIEW_EFFORT:-high}}"
 
 case "$review_type" in
     spec|architecture|api|code|security)
@@ -30,6 +46,16 @@ case "$review_type" in
         echo "Error: unsupported review type: $review_type" >&2
         echo >&2
         usage
+        ;;
+esac
+
+case "$reasoning_effort" in
+    low|medium|high|xhigh)
+        ;;
+    *)
+        echo "Error: unsupported reasoning effort: $reasoning_effort" >&2
+        echo "Allowed values: low, medium, high, xhigh" >&2
+        exit 2
         ;;
 esac
 
@@ -90,10 +116,11 @@ prompt="${prompt//\{\{REPO_ROOT\}\}/$repo_root}"
 
 echo "Codex review"
 echo
-echo "Type:   $review_type"
-echo "Input:  $input_abs"
-echo "Output: $output"
-echo "Repo:   $repo_root"
+echo "Type:      $review_type"
+echo "Effort:    $reasoning_effort"
+echo "Input:     $input_abs"
+echo "Output:    $output"
+echo "Repo:      $repo_root"
 echo
 
 # Run Codex from the user's normal terminal.
@@ -103,7 +130,7 @@ echo
 codex exec \
     --sandbox read-only \
     --model gpt-5.6-sol \
-    -c 'model_reasoning_effort="high"' \
+    -c "model_reasoning_effort=\"$reasoning_effort\"" \
     -o "$output" \
     "$prompt"
 
