@@ -1,4 +1,3 @@
-```zsh
 #!/usr/bin/env zsh
 
 set -u
@@ -131,4 +130,3 @@ echo "  Classify findings as Accepted, Rejected, or Needs clarification."
 echo "  Do not modify the original file unless I ask you to apply the review."
 
 exit 0
-```
