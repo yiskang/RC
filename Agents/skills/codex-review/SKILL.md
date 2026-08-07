@@ -1,4 +1,3 @@
-```markdown
 ---
 name: codex-review
 description: Coordinate an independent Codex review of specifications, architecture documents, API designs, source code, and security-sensitive files. Use when the user asks Codex to review a file or wants a second-model review.
@@ -21,6 +20,89 @@ from Claude Code Bash for this workflow.
 
 Instead, use the external `codex-review` script and let the user run it in
 their normal terminal.
+
+## Command
+
+The external command is:
+
+```bash
+codex-review <review-type> "<file>" [reasoning-effort]
+```
+
+The optional `reasoning-effort` controls Codex reasoning depth.
+
+Supported values:
+
+- `low`
+- `medium`
+- `high`
+- `xhigh`
+
+If omitted, the script uses:
+
+1. `CODEX_REVIEW_EFFORT`, if defined
+2. otherwise `high`
+
+Do not add the reasoning-effort argument unless the user requests a particular
+review depth or there is a clear reason to override the default.
+
+Examples:
+
+```bash
+codex-review spec "docs/design.md"
+```
+
+```bash
+codex-review spec "docs/design.md" medium
+```
+
+```bash
+codex-review architecture "docs/system-design.md" xhigh
+```
+
+## Choosing reasoning effort
+
+Use these guidelines when the user asks which effort to use.
+
+### `low`
+
+Use only for:
+
+- quick sanity checks
+- very small or low-risk artifacts
+- preliminary review where completeness is not important
+
+### `medium`
+
+Use for:
+
+- routine reviews
+- small feature specifications
+- straightforward source files
+- faster iteration when usage or latency matters
+
+### `high`
+
+Use as the normal default for:
+
+- implementation specifications
+- feature designs
+- API reviews
+- non-trivial code
+- important changes
+
+### `xhigh`
+
+Use selectively for:
+
+- architecture reviews
+- difficult concurrency or lifecycle designs
+- complex rendering or geometry algorithms
+- security-sensitive designs
+- public API or SDK contracts
+- high-risk changes where subtle issues matter
+
+Do not automatically recommend `xhigh` for every review.
 
 ## Review types
 
@@ -96,17 +178,32 @@ When the user asks Codex to review a file:
 
 1. Determine the exact file path.
 2. Select the most appropriate review type.
-3. Do not run Codex yourself.
-4. Give the user this command:
+3. Determine whether a reasoning-effort override is actually needed.
+4. Do not run Codex yourself.
+5. Give the user the exact command to run.
+
+Normally:
 
 ```bash
 codex-review <review-type> "<file>"
+```
+
+If a specific reasoning effort is appropriate:
+
+```bash
+codex-review <review-type> "<file>" <reasoning-effort>
 ```
 
 Example:
 
 ```bash
 codex-review spec "docs/model-alignment-design.md"
+```
+
+For a deeper architecture review:
+
+```bash
+codex-review architecture "docs/system-design.md" xhigh
 ```
 
 Do not ask the user to manually calculate the output filename.
@@ -193,6 +290,12 @@ After updating, report:
 
 Do not automatically launch another Codex review after changes.
 
-If another independent review would materially help, tell the user they can
-run the same `codex-review` command again.
-```
+If another independent review would materially help, provide the appropriate
+`codex-review` command again.
+
+For a normal second pass, reuse the current/default effort.
+
+For a substantially changed architecture or previously unresolved high-risk
+issue, a higher effort may be appropriate.
+
+Never execute the review from Claude Code's sandbox.
