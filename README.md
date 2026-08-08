@@ -39,3 +39,11 @@ empty. Populate them with:
 
 Submodules use SSH URLs, so a GitHub SSH key must be loaded first — without
 one both commands fail with a permission error instead of cloning.
+
+## License
+
+MIT License — see [LICENSE](LICENSE).
+
+## Written by
+
+Eason Kang [in/eason-kang-b4398492/](https://www.linkedin.com/in/eason-kang-b4398492)
