@@ -50,7 +50,10 @@ cleanup() {
     rmdir "$lock_dir" 2>/dev/null || true
 }
 
-trap cleanup EXIT INT TERM HUP
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 
 echo "Codex Advisor worker"
 echo
