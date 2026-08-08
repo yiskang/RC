@@ -10,6 +10,8 @@ alias cckl="cd ~/kiln-adsk && kiln"
 alias cckla="cd ~/kiln-adsk && kiln assistant"
 alias md="mdterm"
 alias codex-review="$HOME/.claude/skills/codex-review/codex-review.sh"
+alias codex-advisor="/Users/kangea/.claude/skills/codex-advisor/codex-advisor.sh"
+alias codex-advisor-worker="/Users/kangea/.claude/skills/codex-advisor/codex-advisor-worker.sh"
 
 # ═══════════════════════════════════════════════════════════════
 # Safe delete - rm moves to Trash (recoverable)
