@@ -53,6 +53,8 @@ hxa() {
 	fi
 }
 
-hx-exit() {
-	herdr server stop
+hx-query() {
+	pgrep -a herdr || ps aux | grep ‘[h]erdr’
 }
+
+alias hx-stop='herdr server stop || { echo "herdr server stop failed, killing herdr processes"; pkill herdr; }'
