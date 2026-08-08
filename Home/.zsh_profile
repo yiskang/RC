@@ -9,6 +9,16 @@ export LESS_TERMCAP_so=$'\E[38;5;167m'
 export LESS_TERMCAP_ue=$'\E[38;5;231m'
 export LESS_TERMCAP_us=$'\E[38;5;167m'
 
+# Upgrade plain xterm to 256-color when the terminal really supports it
+if [ "$TERM" = "xterm" ]; then
+  export TERM=xterm-256color
+fi
+
+# Optional but recommended for rich colors
+export COLORTERM=truecolor
+unset NO_COLOR
+
+
 # Declar Path
 PATH="/opt/homebrew/bin:$PATH"
 
